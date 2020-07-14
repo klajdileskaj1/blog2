@@ -1,0 +1,45 @@
+
+
+<div id="page-content">
+
+      <h2 class="text-center mt-4"> <%= @article.title%></h2>
+
+      <div class="container mt-4">
+
+
+
+
+
+            <div class="row justify-content-center">
+              <div class="col-6">
+
+              <div class="card text-center mt-4 shadow  mb-5 bg-white rounded ">
+
+
+
+                    <div class="card-header font-italic">
+                      by Klajdi Leskaj
+                    </div>
+                    <div class="card-body">
+
+                      <div class="card-text text-left"><%= simple_format(@article.description) %></div>
+
+
+
+        <%= link_to "Edit" , edit_article_path(@article),class:"btn btn-outline-primary"%>
+        <%= link_to "Delete",article_path(@article),method: :delete,class:"btn btn-outline-danger",data:{confirm:"Are you sure?"} %>
+
+
+                    </div>
+                    <div class="card-footer text-muted">
+                      Created at <%= time_ago_in_words(@article.created_at)%> ago,
+                      Edited <%= time_ago_in_words(@article.updated_at)%> ago
+                    </div>
+              </div>
+
+          </div>
+        </div>
+
+
+      </div>
+</div>
