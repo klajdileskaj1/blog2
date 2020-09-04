@@ -1,0 +1,46 @@
+<div class="container">
+
+
+
+      <div class="row justify-content-center">
+
+        <div class="col-10">
+              <%= render 'shared/errors', obj: @user %>
+            <%= form_with  model: @user,class:"shadow p-3 mb-4 bg-success rounded" ,local:true do |f|%>
+                <div class="from-group row mb-4">
+
+                      <%= f.label:username ,class:"col-2 col-form-label text-white" %>
+
+                      <div class="col-10">
+                              <%= f.text_field:username,class:"form-control shadow rounded",placeholder:"Enter username"  %>
+                        </div>
+                  </div>
+
+                    <div class="from-group row">
+                      <%= f.label:email ,class:"col-2 col-form-label text-white" %>
+
+                        <div class="col-10">
+                            <%= f.email_field:email,class:"form-control shadow rounded mb-4",placeholder:"Enter email address"   %>
+                        </div>
+                    </div>
+
+                    <div class="from-group row">
+                      <%= f.label:password ,class:"col-2 col-form-label text-white" %>
+
+                        <div class="col-10">
+                            <%= f.password_field:password,class:"form-control shadow rounded",placeholder:"Choose password"   %>
+                        </div>
+                    </div>
+
+              <div class="from-group row justify-content-center mt-4 ">
+                <%= f.submit( @user.new_record? ? "Sign up" : "Update account", class:"btn btn-outline-light btn-lg")  %>
+              </div>
+        <% end %>
+
+                <div class="from-group row justify-content-center mt-4">
+                    <%= link_to 'Return to articles listing', articles_path,class:"text-info" , method: :get%>
+                </div>
+            </div>
+
+      </div>
+</div>

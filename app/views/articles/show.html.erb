@@ -18,17 +18,27 @@
 
 
                     <div class="card-header font-italic">
-                      by Klajdi Leskaj
+                      by <%= @article.user.username %>
+                      <%= link_to gravatar_for(@article.user),user_path(@article.user) %>
+                      <% if @article.categories.any? %>
+
+                      <%= render @article.categories %>
+
+                      <% end %>
+
                     </div>
                     <div class="card-body">
 
-                      <div class="card-text text-left"><%= simple_format(@article.description) %></div>
+                      <div class="card-text text-left"><%= simple_format(@article.description) %>
+                      </div>
 
 
+        <% if logged_in? && @article.user == current_user %>
 
         <%= link_to "Edit" , edit_article_path(@article),class:"btn btn-outline-primary"%>
         <%= link_to "Delete",article_path(@article),method: :delete,class:"btn btn-outline-danger",data:{confirm:"Are you sure?"} %>
 
+        <% end %>
 
                     </div>
                     <div class="card-footer text-muted">

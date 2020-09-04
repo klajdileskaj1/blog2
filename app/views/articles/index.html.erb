@@ -3,43 +3,14 @@
 <div id="page-content">
 
       <h1 class="text-center mt-4"> Listing all articles</h1>
+      <div class="flickr_pagination">
 
-      <div class="container mt-4">
+          <%= will_paginate @articles, :container => false %>
+      </div>
+      <%= render 'article' %>
 
+      <div class="flickr_pagination mb-4">
 
-
-
-            <% @articles.each do|article| %>
-            <div class="row justify-content-center">
-              <div class="col-6">
-
-              <div class="card text-center mt-4 shadow  mb-5 bg-white rounded ">
-
-
-
-                    <div class="card-header font-italic">
-                      by Klajdi Leskaj
-                    </div>
-                    <div class="card-body">
-                      <h5 class="card-title"><%=link_to article.title , article_path(article),class:"text-success" %></h5>
-                      <p class="card-text"><%= truncate(article.description, length:100) %></p>
-
-
-        <%= link_to "View" , article_path(article),class:"btn btn-outline-success"%>
-        <%= link_to "Edit" , edit_article_path(article),class:"btn btn-outline-primary"%>
-        <%= link_to "Delete",article_path(article),method: :delete,class:"btn btn-outline-danger",data:{confirm:"Are you sure?"} %>
-
-
-                    </div>
-                    <div class="card-footer text-muted">
-                      Created at <%= time_ago_in_words(article.created_at)%> ago,
-                      Edited <%= time_ago_in_words(article.updated_at)%> ago
-                    </div>
-              </div>
-
-          </div>
-        </div>
-
-        <%end%>
+          <%= will_paginate @articles, :container => false %>
       </div>
 </div>
